@@ -187,7 +187,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
         .addFunction(
-                'AUFRUNDEN',
+                'aufrunden',
                 singleNumberHeader,
                 'round up.',
                 'Aufrunden ohne Nachkomma stelle',
@@ -201,7 +201,7 @@ const excelConstantsFragment = new PluginFragment()
             )
 
     .addFunction(
-        'FAKULTÄT',
+        'fakultät',
         singleNumberHeader,
         'faculty.',
         'Gibt die Fakultät zu einer Zahl zurück',
@@ -215,7 +215,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'GGT',
+        'ggt',
         singleNumberHeader,
         'gcd.',
         'Gibt den größten gemeinsamen Teiler zurück',
@@ -229,7 +229,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'FALSCH',
+        'falsch',
         singleNumberHeader,
         'Returns the truth value “FALSCH”',
         'Gibt den Wahrheitswert „FALSCH“ zurück',
@@ -239,7 +239,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
 .addFunction(
-    'GGANZZAHL',
+    'gganzzahl',
     doubleNumberHeader,
     'Checks if a value is bigger than a given threshold',
     'Überprüft, ob eine Zahl größer als ein gegebener Schwellenwert ist',
@@ -262,7 +262,7 @@ const excelConstantsFragment = new PluginFragment()
 )
 
 .addFunction(
-    'DELTA',
+    'delta',
     doubleNumberHeader,
     'Checks if two values are equal',
     'Überprüft, ob zwei Werte gleich sind',
@@ -271,7 +271,7 @@ const excelConstantsFragment = new PluginFragment()
         if (isNaN(n)) {
             throw runtimeError('Funktion Delta funktioniert nur mit Zahlen.');
         }
-        const x = getParameter('x').value;
+        const x = (<NumberNode>getParameter('x')).value;
             if (isNaN(n)) {
                 throw runtimeError('Funktion Delta funktioniert nur mit Zahlen.');
             }
