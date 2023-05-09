@@ -248,7 +248,7 @@ const excelConstantsFragment = new PluginFragment()
         if (isNaN(n)) {
             throw runtimeError('Funktion GGanzzahl funktioniert nur mit Zahlen.');
         }
-        const x = getParameter('x').value;
+        const x = (<NumberNode>getParameter('x')).value;
             if (isNaN(n)) {
                 throw runtimeError('Funktion GGanzzahl funktioniert nur mit Zahlen.');
             }
