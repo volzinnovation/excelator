@@ -142,7 +142,7 @@ const excelConstantsFragment = new PluginFragment()
 
 )
 .addFunction(
-    'Aufrunden',
+    'aufrunden',
     singleNumberHeader,
     'Round up without decimal place',
     'Aufrunden ohne Nachkommastelle',
@@ -157,7 +157,7 @@ const excelConstantsFragment = new PluginFragment()
 )
 
     .addFunction(
-        'BOGENMASS',
+        'bogenmass',
         singleNumberHeader,
         'Calculates the Radian to an angle',
         'Berechnet das Bogenmaß eines Winkels',
