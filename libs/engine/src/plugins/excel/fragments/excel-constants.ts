@@ -170,6 +170,95 @@ const excelConstantsFragment = new PluginFragment()
             }
             return createNumberNode(n*Math.PI/180);
         },
-
-    );
+    )
+    // Beginn Funktionen Gruppe C - Lukas
+    .addFunction(
+        'istgerade',
+        singleNumberHeader,
+        'Returns true if a number is even, or false if it is odd.',
+        'Gibt true zurück, wenn eine Zahl gerade ist, andernfalls false.',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            if (isNaN(n)) {
+                throw runtimeError('Die Funktion istgerade funktioniert nur mit Zahlen.');
+            }
+            return {
+                type: 'boolean',
+                value: n % 2 === 0,
+            };
+        },
+    )
+    .addFunction(
+        'istungerade',
+        singleNumberHeader,
+        'Returns true if a number is odd, or false if it is even.',
+        'Gibt true zurück, wenn eine Zahl ungerade ist, andernfalls false.',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            if (isNaN(n)) {
+                throw runtimeError('Funktion ISTUNGERADE funktioniert nur mit Zahlen.');
+            }
+            return {
+                type: 'boolean',
+                value: n % 2 !== 0,
+            };
+        },
+    )
+    .addFunction(
+        'isttext',
+        singleNumberHeader,
+        'Returns true if a value is text, or false if it is not.',
+        'Gibt true zurück, wenn ein Wert Text ist, andernfalls false.',
+        ({ getParameter }) => {
+            const value = getParameter('value');
+            return {
+                type: 'boolean',
+                value: typeof value === 'string',
+            };
+        },
+    )
+    .addFunction(
+        'istzahl',
+        singleNumberHeader,
+        'Returns true if a value is a number, or false if it is not.',
+        'Gibt true zurück, wenn ein Wert eine Zahl ist, andernfalls false.',
+        ({ getParameter }) => {
+            const value = getParameter('value');
+            return {
+                type: 'boolean',
+                value: !isNaN(Number(value)),
+            };
+        },
+    )
+    .addFunction(
+        'kuerzen',
+        doubleNumberHeader,
+        'Returns a number rounded to a specified number of decimal places.',
+        'Gibt eine Zahl auf eine bestimmte Anzahl von Dezimalstellen gerundet zurück.',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            const d = (<NumberNode>getParameter('d')).value;
+            if (isNaN(n) || isNaN(d)) {
+                throw runtimeError('Funktion KÜRZEN funktioniert nur mit Zahlen.');
+            } else if (d < 0) {
+                throw runtimeError('Anzahl der Dezimalstellen muss größer oder gleich 0 sein.');
+            }
+            const factor = Math.pow(10, d);
+            return createNumberNode(Math.round(n * factor) / factor);
+        },
+    )
+    .addFunction(
+        'log10',
+        singleNumberHeader,
+        'Returns the base 10 logarithm of a number.',
+        'Gibt den Logarithmus zur Basis 10 einer Zahl zurück.',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            if (isNaN(n) || n <= 0) {
+                throw runtimeError('Funktion LOG10 funktioniert nur mit positiven Zahlen.');
+            }
+            return createNumberNode(Math.log10(n));
+        },
+    )
+// Ende Funktionen Gruppe C - Lukas
 export default excelConstantsFragment;
