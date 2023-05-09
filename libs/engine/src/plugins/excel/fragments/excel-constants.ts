@@ -174,7 +174,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'GRADMASS',
+        'gradmass',
         singleNumberHeader,
         'Calculates the angle to radian',
         'Berechnet das Gradmaß eines Winkels',
@@ -206,7 +206,7 @@ const excelConstantsFragment = new PluginFragment()
         'faculty.',
         'Gibt die Fakultät zu einer Zahl zurück',
         ({ getParameter, runtimeError }) => {
-            const n = getParameter('n').value;
+            const n = (<NumberNode>getParameter('n')).value;
             if (isNaN(n)) {
                 throw runtimeError('Funktion Fakultät funktioniert nur mit Zahlen.');
             }
@@ -244,7 +244,7 @@ const excelConstantsFragment = new PluginFragment()
     'Checks if a value is bigger than a given threshold',
     'Überprüft, ob eine Zahl größer als ein gegebener Schwellenwert ist',
     ({ getParameter, runtimeError }) => {
-        const n = getParameter('n').value;
+        const n = (<NumberNode>getParameter('n')).value;
         if (isNaN(n)) {
             throw runtimeError('Funktion GGanzzahl funktioniert nur mit Zahlen.');
         }
@@ -267,7 +267,7 @@ const excelConstantsFragment = new PluginFragment()
     'Checks if two values are equal',
     'Überprüft, ob zwei Werte gleich sind',
     ({ getParameter, runtimeError }) => {
-        const n = getParameter('n').value;
+        const n = (<NumberNode>getParameter('n')).value;
         if (isNaN(n)) {
             throw runtimeError('Funktion Delta funktioniert nur mit Zahlen.');
         }
