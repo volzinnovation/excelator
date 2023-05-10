@@ -210,7 +210,7 @@ const excelConstantsFragment = new PluginFragment()
             if (isNaN(n)) {
                 throw runtimeError('Funktion Fakultät funktioniert nur mit Zahlen.');
             }
-            return createNumberNode(math.fact(n));
+            return createNumberNode(Math.fact(n));
         },
     )
 
