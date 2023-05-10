@@ -264,6 +264,30 @@ const excelConstantsFragment = new PluginFragment()
 
 // Beginn Funktion Gruppe C -Tom
 
+    .addFunction(
+        'max',
+        singleNumberHeader,
+        'Returns the maximum value from an array of numbers.',
+        'gibt den größten Wert aus einem Array von Zahlen zurück',
+        ({ getParameter, runtimeError }) => {
+            const n = getParameter('n') as number[];
+
+            if (!Array.isArray(n)) {
+                throw runtimeError('Invalid array provided.');
+            }
+
+            if (n.length === 0) {
+                throw runtimeError('Array is empty.');
+            }
+
+            const max = Math.max(...n);
+            return createNumberNode(max);
+        }
+    );
+
+
+
+// Ende Funktion Gruppe C -Tom
 
 
 export default excelConstantsFragment;
