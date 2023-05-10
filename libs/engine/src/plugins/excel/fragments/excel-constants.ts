@@ -12,6 +12,7 @@ const doubleNumberHeader: FunctionHeaderItem[] = [
 const excelConstantsFragment = new PluginFragment()
     .addConstant('excel:five', 'Test output five', 'Test output fünf', createNumberNode(5))
 
+    //Gruppe A Funktionen
     .addFunction(
         'arccos',
         singleNumberHeader,
@@ -27,6 +28,7 @@ const excelConstantsFragment = new PluginFragment()
             return createNumberNode(Math.acos(n));
         },
     )
+
     .addFunction(
         'abrunden',
         singleNumberHeader,
@@ -155,7 +157,6 @@ const excelConstantsFragment = new PluginFragment()
     },
 
 )
-
     .addFunction(
         'bogenmass',
         singleNumberHeader,
@@ -171,6 +172,7 @@ const excelConstantsFragment = new PluginFragment()
             return createNumberNode(n*Math.PI/180);
         },
     )
+    
     // Beginn Funktionen Gruppe C - Lukas
     .addFunction(
         'istgerade',
