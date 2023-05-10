@@ -9,11 +9,6 @@ const doubleNumberHeader: FunctionHeaderItem[] = [
     { name: 'a', type: 'number', evaluate: true },
 ];
 
-
-
-
-
-
 const excelConstantsFragment = new PluginFragment()
     .addConstant('excel:five', 'Test output five', 'Test output fünf', createNumberNode(5))
 
@@ -147,7 +142,7 @@ const excelConstantsFragment = new PluginFragment()
 
 )
 .addFunction(
-    'aufrunden',
+    'Aufrunden',
     singleNumberHeader,
     'Round up without decimal place',
     'Aufrunden ohne Nachkommastelle',
@@ -266,136 +261,4 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
 // Ende Funktionen Gruppe C - Lukas
-function faculty(n) {
-    let result = 1;
-    for (let i = 2; i <= n; i++) {
-        result *= i;
-    }
-    return result;
-}
-
-
-
-const facultyHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
-
-const facultyFunction = new PluginFragment()
-    .addFunction(
-        'faculty',
-        facultyHeader,
-        'Returns the faculty of a number.',
-        'Gibt die Fakultät einer Zahl zurück.',
-        ({ getParameter, runtimeError }) => {
-            const n = (<NumberNode>getParameter('n')).value;
-            if (!Number.isInteger(n) || n < 0) {
-                throw runtimeError('Function only works with non-negative integers.');
-            }
-            return createNumberNode(faculty(n));
-        },
-    )
-
-const ggtHeader: FunctionHeaderItem[] = [
-    { name: 'a', type: 'number', evaluate: true },
-    { name: 'b', type: 'number', evaluate: true },
-];
-
-function ggt(a: number, b: number): number {
-    if (b === 0) {
-        return a;
-    }
-    return ggt(b, a % b);
-}
-
-const ggtFunction = new PluginFragment()
-    .addFunction(
-        'ggt',
-        ggtHeader,
-        'Returns the greatest common divisor of two numbers.',
-        'Gibt den größten gemeinsamen Teiler zweier Zahlen zurück.',
-        ({ getParameter, runtimeError }) => {
-            const a = (<NumberNode>getParameter('a')).value;
-            const b = (<NumberNode>getParameter('b')).value;
-            if (!Number.isInteger(a) || !Number.isInteger(b)) {
-                throw runtimeError('Function only works with integers.');
-            }
-            if (a === 0 && b === 0) {
-                throw runtimeError('Function is not defined for 0 and 0.');
-            }
-            return createNumberNode(ggt(Math.abs(a), Math.abs(b)));
-        },
-    )
-
-
-    .addFunction(
-        'grad',
-        singleNumberHeader,
-        'Calculates the angle to radian',
-        'Berechnet das Gradmaß eines Winkels',
-        ({ getParameter, runtimeError }) => {
-            const n = (<NumberNode>getParameter('n')).value;
-            return createNumberNode(n*180/Math.PI);
-        },
-    )
-
-
-.addFunction(
-    'gganzzahl',
-    doubleNumberHeader,
-    'Checks if a value is bigger than a given threshold',
-    'Überprüft, ob eine Zahl größer als ein gegebener Schwellenwert ist',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion GGanzzahl funktioniert nur mit Zahlen.');
-        }
-        const x = (<NumberNode>getParameter('x')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion GGanzzahl funktioniert nur mit Zahlen.');
-        }
-
-        if (n > x) {
-            return createNumberNode(1);
-        } else {
-            return createNumberNode(0);
-        }
-    },
-)
-
-    .addFunction(
-        'delta',
-        doubleNumberHeader,
-        'Checks if two values are equal',
-        'Überprüft, ob zwei Werte gleich sind',
-        ({ getParameter, runtimeError }) => {
-            const n = (<NumberNode>getParameter('n')).value;
-            if (isNaN(n)) {
-                throw runtimeError('Funktion Delta funktioniert nur mit Zahlen.');
-            }
-            const x = (<NumberNode>getParameter('x')).value;
-            if (isNaN(n)) {
-                throw runtimeError('Funktion Delta funktioniert nur mit Zahlen.');
-            }
-
-            if (n === x) {
-                return createNumberNode(1);
-            } else {
-                return createNumberNode(0);
-            };
-        },
-    )
-
-.addFunction(
-    'aufrunden',
-    singleNumberHeader,
-    'Round up without decimal place',
-    'Aufrunden ohne Nachkommastelle',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
-        }
-        return createNumberNode(Math.ceil(n));
-    },
-
-);
-
 export default excelConstantsFragment;
