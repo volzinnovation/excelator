@@ -158,7 +158,7 @@ const excelConstantsFragment = new PluginFragment()
 
 )
     .addFunction(
-        'BOGENMASS',
+        'bogenmass',
         singleNumberHeader,
         'Calculates the Radian to an angle',
         'Berechnet das Bogenmaß eines Winkels',
