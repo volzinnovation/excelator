@@ -261,4 +261,9 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
 // Ende Funktionen Gruppe C - Lukas
+
+// Beginn Funktion Gruppe C -Tom
+
+
+
 export default excelConstantsFragment;
