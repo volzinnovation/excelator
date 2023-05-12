@@ -8,9 +8,61 @@ const doubleNumberHeader: FunctionHeaderItem[] = [
     { name: 'n', type: 'number', evaluate: true },
     { name: 'a', type: 'number', evaluate: true },
 ];
+const singleVectorHeader: FunctionHeaderItem[] = [{ name: 'v', type: "vector", evaluate: true }];
 
 const excelConstantsFragment = new PluginFragment()
     .addConstant('excel:five', 'Test output five', 'Test output fünf', createNumberNode(5))
+
+    // Anfang Gruppe C - Tom
+
+    .addFunction(
+        'median',
+        singleNumberHeader,
+        'Returns the median',
+        'gibt den Median aus',
+        ({ getParameter, runtimeError }) => {
+            const v = getParameter('v') as number[];
+            if (!Array.isArray(v)) {
+                throw runtimeError('Invalid input provided.');
+            }
+            if (v.length === 0) {
+                throw runtimeError('Array is empty.');
+            }
+            const sortedArray = v.sort((n1, n2) => n1-n2);
+            var median;
+            const middle = Math.floor(sortedArray.length / 2);
+            // array has even length --> take avg of two middle elements
+            if (sortedArray.length % 2 == 0) {
+                median = (sortedArray[middle - 1] + sortedArray[middle]) / 2;
+            }
+            // array has uneven length --> middle element
+            else {
+                median = sortedArray[middle];
+            }
+            return createNumberNode(median);
+        }
+    )
+
+    .addFunction(
+        'max',
+        singleNumberHeader,
+        'Returns the maximum value from an array of numbers.',
+        'gibt den größten Wert aus einem Array von Zahlen zurück',
+        ({ getParameter, runtimeError }) => {
+            const n = getParameter('n') as number[];
+            if (!Array.isArray(n)) {
+                throw runtimeError('Invalid array provided.');
+            }
+            if (n.length === 0) {
+                throw runtimeError('Array is empty.');
+            }
+            const max = Math.max(...n);
+            return createNumberNode(max);
+        }
+    )
+    // Ende Funktionen Gruppe C - Tom
+
+
 
     //Gruppe A Funktionen
     .addFunction(
@@ -263,25 +315,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
 // Ende Funktionen Gruppe C - Lukas
-// Beginn Funktionen Gruppe C - Tom
-    .addFunction(
-        'max',
-        singleNumberHeader,
-        'Returns the maximum value from an array of numbers.',
-        'gibt den größten Wert aus einem Array von Zahlen zurück',
-        ({ getParameter, runtimeError }) => {
-            const n = getParameter('n') as number[];
-            if (!Array.isArray(n)) {
-                throw runtimeError('Invalid array provided.');
-            }
-            if (n.length === 0) {
-                throw runtimeError('Array is empty.');
-            }
-            const max = Math.max(...n);
-            return createNumberNode(max);
-        }
-    )
-// Ende Funktionen Gruppe C - Tom
+
 // Beginn Funktionen Gruppe B
 function faculty(n) {
     let result = 1;
