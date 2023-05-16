@@ -96,89 +96,63 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
 
-.addFunction(
-    'Acosh',
-    singleNumberHeader,
-    'Returns the inverse hyperbolic cosine of a number',
-    'Gibt den umgekehrten hyperbolischen Kosinus einer Zahl zurück',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Function acosh funktioniert nur mit Zahlen.');
-        }else if (n<1) {
-            throw runtimeError('Nur Zahlen größer als 1 möglich');
-        }
-        return createNumberNode(Math.acosh(n));
-    },
-
-)
     .addFunction(
-        'ungerade', singleNumberHeader,
-        'Rounds up a number to the nearest odd integer',
-        'Rundet eine Zahl auf die nächste ungerade ganze Zahl auf',
+        'Acosh',
+        singleNumberHeader,
+        'Returns the inverse hyperbolic cosine of a number',
+        'Gibt den umgekehrten hyperbolischen Kosinus einer Zahl zurück',
         ({ getParameter, runtimeError }) => {
             const n = (<NumberNode>getParameter('n')).value;
-
             if (isNaN(n)) {
-                throw runtimeError('Funktion ungerade funktioniert nur mit Zahlen');
+                throw runtimeError('Function acosh funktioniert nur mit Zahlen.');
+            } else if (n < 1) {
+                throw runtimeError('Nur Zahlen größer als 1 möglich');
             }
-
-            const gerundeteZahl = Math.round(n); // Runden
-            const istGerade = gerundeteZahl % 2 === 0; // Überprüfen gerundete Zahl gerade?
-            const ungeradeZahl = istGerade ? gerundeteZahl + 1 : gerundeteZahl;
-            return createNumberNode (ungeradeZahl);
+            return createNumberNode(Math.acosh(n));
         },
     )
 
     .addFunction(
-        'zufallsbereich', doubleNumberHeader,
-        'Returns a random number between two specified numbers or just a random number.',
-        'Gibt Zufallszahl zwischen zwei angegebenen Zahlen zurück bzw. eine Zufallszahl.',
+        'ASin',
+        singleNumberHeader,
+        'Returns the arc sine or inverted sine of a number',
+        'Gibt den Arkussinus oder umgekehrten Sinus einer Zahl zurück.',
         ({ getParameter, runtimeError }) => {
             const n = (<NumberNode>getParameter('n')).value;
-            const a = (<NumberNode>getParameter('a')).value;
-            if (isNaN(n || a)) {
-                throw runtimeError('Funktion zufallsbereich funktioniert nur mit Zahlen.');
+            if (isNaN(n)) {
+                throw runtimeError('Funktion asin funktioniert nur mit Zahlen.');
             }
-            else if (n !== undefined && a !== undefined) {
-                // Wenn minValue und maxValue definiert sind, generieren Sie eine Zufallszahl im angegebenen Bereich
-                return createNumberNode(Math.random() * (a - n) + n);
-            } else {
-                // Wenn minValue und maxValue nicht definiert sind, generieren Sie einfach eine Zufallszahl zw. 0 und 1
-                return createNumberNode(Math.random());
-            }
+            return createNumberNode(Math.asin(n));
         },
     )
-
-
     .addFunction(
-    'ASin',
-    singleNumberHeader,
-    'Returns the arc sine or inverted sine of a number',
-    'Gibt den Arkussinus oder umgekehrten Sinus einer Zahl zurück.',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion asin funktioniert nur mit Zahlen.');
-        }
-        return createNumberNode(Math.asin(n));
-    },
-
-)
+        'Atan',
+        singleNumberHeader,
+        'Returns the arc tangent or inverse tangent of a number.',
+        'Gibt den Arkustangens oder umgekehrten Tangens einer Zahl zurück.',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            if (isNaN(n)) {
+                throw runtimeError('Funktion atan funktioniert nur mit Zahlen.');
+            }
+            return createNumberNode(Math.atan(n));
+        },
+    )
     .addFunction(
-    'Atan',
-    singleNumberHeader,
-    'Returns the arc tangent or inverse tangent of a number.',
-    'Gibt den Arkustangens oder umgekehrten Tangens einer Zahl zurück.',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion atan funktioniert nur mit Zahlen.');
-        }
-        return createNumberNode(Math.atan(n));
-    },
-
-)
+        'ASinh',
+        singleNumberHeader,
+        'Returns the inverse hyperbolic sine of a number.',
+        'Gibt den umgekehrten hyperbolischen Sinus einer Zahl zurück.',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            if (isNaN(n)) {
+                throw runtimeError('Funktion asin funktioniert nur mit Zahlen.');
+            } else if (n < 0) {
+                throw runtimeError('Nur Zahlen größer als 0 möglich');
+            }
+            return createNumberNode(Math.asinh(n));
+        },
+    )
     .addFunction(
     'ASinh',
     singleNumberHeader,
@@ -218,11 +192,12 @@ const excelConstantsFragment = new PluginFragment()
             const n = (<NumberNode>getParameter('n')).value;
             if (isNaN(n)) {
                 throw runtimeError('Funktion Bogenmaß funktioniert nur mit Zahlen.');
-            }else if (n <0) {
+            } else if (n < 0) {
                 throw runtimeError('Nur Zahlen größer als 0 möglich');
             }
-            return createNumberNode(n*Math.PI/180);
+            return createNumberNode((n * Math.PI) / 180);
         },
+
     )
     
     // Beginn Funktionen Gruppe C - Lukas
