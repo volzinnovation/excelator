@@ -8,7 +8,7 @@ const doubleNumberHeader: FunctionHeaderItem[] = [
     { name: 'n', type: 'number', evaluate: true },
     { name: 'a', type: 'number', evaluate: true },
 ];
-const singleVectorHeader: FunctionHeaderItem[] = [{ name: 'v', type: "vector", evaluate: true }];
+const singleVectorHeader: FunctionHeaderItem[] = [{ name: 'v', type: 'vector', evaluate: true }];
 
 const excelConstantsFragment = new PluginFragment()
     .addConstant('excel:five', 'Test output five', 'Test output fünf', createNumberNode(5))
@@ -28,8 +28,8 @@ const excelConstantsFragment = new PluginFragment()
             if (v.length === 0) {
                 throw runtimeError('Array is empty.');
             }
-            const sortedArray = v.sort((n1, n2) => n1-n2);
-            var median;
+            const sortedArray = v.sort((n1, n2) => n1 - n2);
+            let median;
             const middle = Math.floor(sortedArray.length / 2);
             // array has even length --> take avg of two middle elements
             if (sortedArray.length % 2 == 0) {
@@ -40,7 +40,7 @@ const excelConstantsFragment = new PluginFragment()
                 median = sortedArray[middle];
             }
             return createNumberNode(median);
-        }
+        },
     )
 
     .addFunction(
@@ -58,11 +58,9 @@ const excelConstantsFragment = new PluginFragment()
             }
             const max = Math.max(...n);
             return createNumberNode(max);
-        }
+        },
     )
     // Ende Funktionen Gruppe C - Tom
-
-
 
     //Gruppe A Funktionen
     .addFunction(
@@ -154,35 +152,18 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-    'ASinh',
-    singleNumberHeader,
-    'Returns the inverse hyperbolic sine of a number.',
-    'Gibt den umgekehrten hyperbolischen Sinus einer Zahl zurück.',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion asin funktioniert nur mit Zahlen.');
-        }else if (n <0) {
-            throw runtimeError('Nur Zahlen größer als 0 möglich');
-        }
-        return createNumberNode(Math.asinh(n));
-    },
-
-)
-.addFunction(
-    'Aufrunden',
-    singleNumberHeader,
-    'Round up without decimal place',
-    'Aufrunden ohne Nachkommastelle',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
-        }
-        return createNumberNode(Math.ceil(n));
-    },
-
-)
+        'Aufrunden',
+        singleNumberHeader,
+        'Round up without decimal place',
+        'Aufrunden ohne Nachkommastelle',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            if (isNaN(n)) {
+                throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
+            }
+            return createNumberNode(Math.ceil(n));
+        },
+    )
     .addFunction(
         'bogenmass',
         singleNumberHeader,
@@ -197,9 +178,8 @@ const excelConstantsFragment = new PluginFragment()
             }
             return createNumberNode((n * Math.PI) / 180);
         },
-
     )
-    
+
     // Beginn Funktionen Gruppe C - Lukas
     .addFunction(
         'istgerade',
@@ -288,7 +268,7 @@ const excelConstantsFragment = new PluginFragment()
             }
             return createNumberNode(Math.log10(n));
         },
-    )
+    );
 // Ende Funktionen Gruppe C - Lukas
 
 // Beginn Funktionen Gruppe B
@@ -300,24 +280,21 @@ function faculty(n) {
     return result;
 }
 
-
-
 const facultyHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
 
-const facultyFunction = new PluginFragment()
-    .addFunction(
-        'faculty',
-        facultyHeader,
-        'Returns the faculty of a number.',
-        'Gibt die Fakultät einer Zahl zurück.',
-        ({ getParameter, runtimeError }) => {
-            const n = (<NumberNode>getParameter('n')).value;
-            if (!Number.isInteger(n) || n < 0) {
-                throw runtimeError('Function only works with non-negative integers.');
-            }
-            return createNumberNode(faculty(n));
-        },
-    )
+const facultyFunction = new PluginFragment().addFunction(
+    'faculty',
+    facultyHeader,
+    'Returns the faculty of a number.',
+    'Gibt die Fakultät einer Zahl zurück.',
+    ({ getParameter, runtimeError }) => {
+        const n = (<NumberNode>getParameter('n')).value;
+        if (!Number.isInteger(n) || n < 0) {
+            throw runtimeError('Function only works with non-negative integers.');
+        }
+        return createNumberNode(faculty(n));
+    },
+);
 
 const ggtHeader: FunctionHeaderItem[] = [
     { name: 'a', type: 'number', evaluate: true },
@@ -350,7 +327,6 @@ const ggtFunction = new PluginFragment()
         },
     )
 
-
     .addFunction(
         'grad',
         singleNumberHeader,
@@ -358,10 +334,9 @@ const ggtFunction = new PluginFragment()
         'Berechnet das Gradmaß eines Winkels',
         ({ getParameter, runtimeError }) => {
             const n = (<NumberNode>getParameter('n')).value;
-            return createNumberNode(n*180/Math.PI);
+            return createNumberNode((n * 180) / Math.PI);
         },
     )
-
 
     .addFunction(
         'gganzzahl',
@@ -409,18 +384,18 @@ const ggtFunction = new PluginFragment()
         },
     )
 
-.addFunction(
-    'aufrunden',
-    singleNumberHeader,
-    'Round up without decimal place',
-    'Aufrunden ohne Nachkommastelle',
-    ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
-        }
-        return createNumberNode(Math.ceil(n));
-    },
-);
+    .addFunction(
+        'aufrunden',
+        singleNumberHeader,
+        'Round up without decimal place',
+        'Aufrunden ohne Nachkommastelle',
+        ({ getParameter, runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+            if (isNaN(n)) {
+                throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
+            }
+            return createNumberNode(Math.ceil(n));
+        },
+    );
 // Ende Funktionen Gruppe B
 export default excelConstantsFragment;
