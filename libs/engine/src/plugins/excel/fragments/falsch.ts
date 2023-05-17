@@ -1,18 +1,24 @@
 import createNumberNode from '../../../node-operations/create-node/create-number-node';
 import { FunctionHeaderItem, NumberNode } from '../../../types/nodes.types';
 import { PluginFragment } from '../../../utils/plugin-builder';
-import {calculateFact} from "../../discrete-math/utils/fact";
 
 const singleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
-const facultyFragment = new PluginFragment().addFunction(
-    'faculty',
+
+const aufrundenFragment = new PluginFragment().addFunction(
+    'aufrunden',
     singleNumberHeader,
-    'Returns the faculty of a number.',
-    'Gibt die Fakultät einer Zahl zurück.',
-    ({ getParameter }) => {
+    'Round up without decimal place',
+    'Aufrunden ohne Nachkommastelle',
+    ({ getParameter, runtimeError }) => {
         const n = (<NumberNode>getParameter('n')).value;
-        return createNumberNode(calculateFact(n));
-    },
+
+        if (isNaN(n)) {
+            throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
+        }
+        return createNumberNode(Math.ceil(n));
+        },
 );
 
-export default facultyFragment;
+export default aufrundenFragment;
+
+

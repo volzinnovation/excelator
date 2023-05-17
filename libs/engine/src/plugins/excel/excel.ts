@@ -6,13 +6,13 @@ import wurzelFragment from './fragments/wurzel';
 import wennFragment from './fragments/wenn';
 import zufallsbereichFragment from './fragments/zufallsbereich';
 import ungeradeFragment from './fragments/ungerade';
-import log10Fragment from "./fragments/log10";
-import deltaFragment from "./fragments/ggt";
-import gganzzahl from "./fragments/gganzzahl";
-import gradFragment from "./fragments/grad";
-import aufrundenFragment from "./fragments/faculty";
+import log10Fragment from './fragments/log10';
+import deltaFragment from './fragments/ggt';
+import gganzzahl from './fragments/gganzzahl';
+import gradFragment from './fragments/grad';
+import aufrundenFragment from './fragments/faculty';
 import ggtFragment from "./fragments/ggt";
-import facultyFragment from "./fragments/faculty";
+import facultyFragment from './fragments/faculty';
 
 
 
