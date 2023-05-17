@@ -22,7 +22,7 @@ const gganzzahlFragment = new PluginFragment().addFunction(
             throw runtimeError('Funktion gganzzahl funktioniert nur mit Zahlen.');
         }
 
-        if (n > x) {
+        if (n > x || n === x) {
             return createNumberNode(1);
         } else {
             return createNumberNode(0);
