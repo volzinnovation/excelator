@@ -7,6 +7,16 @@ import wennFragment from './fragments/wenn';
 import zufallsbereichFragment from './fragments/zufallsbereich';
 import ungeradeFragment from './fragments/ungerade';
 import log10Fragment from "./fragments/log10";
+import oktindezFragment from "./fragments/oktindez";
+import pdurationFragment from "./fragments/pduration";
+import quotientFragment from "./fragments/quotient";
+import quadratesummeFragment from "./fragments/quadratesumme";
+import rundenFragment from "./fragments/runden";
+import istgeradeFragment from "./fragments/istgerade";
+import istungeradeFragment from "./fragments/istungerade";
+import isttextFragment from "./fragments/isttext";
+import istzahlFragment from "./fragments/istzahl";
+import kuerzenFragment from "./fragments/kuerzen";
 
 
 const excelPlugin = createPlugin(
@@ -28,6 +38,16 @@ const excelPlugin = createPlugin(
     .addFragment(zufallsbereichFragment)
     .addFragment(ungeradeFragment)
     .addFragment(log10Fragment)
+    .addFragment(oktindezFragment)
+    .addFragment(pdurationFragment)
+    .addFragment(quotientFragment)
+    .addFragment(quadratesummeFragment)
+    .addFragment(rundenFragment)
+    .addFragment(istgeradeFragment)
+    .addFragment(istungeradeFragment)
+    .addFragment(isttextFragment)
+    .addFragment(istzahlFragment)
+    .addFragment(kuerzenFragment)
     .build();
 
 export default excelPlugin;
