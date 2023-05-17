@@ -382,20 +382,6 @@ const ggtFunction = new PluginFragment()
                 return createNumberNode(0);
             }
         },
-    )
-
-    .addFunction(
-        'aufrunden',
-        singleNumberHeader,
-        'Round up without decimal place',
-        'Aufrunden ohne Nachkommastelle',
-        ({ getParameter, runtimeError }) => {
-            const n = (<NumberNode>getParameter('n')).value;
-            if (isNaN(n)) {
-                throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
-            }
-            return createNumberNode(Math.ceil(n));
-        },
     );
-// Ende Funktionen Gruppe B
+
 export default excelConstantsFragment;
