@@ -2,7 +2,10 @@ import createNumberNode from '../../../node-operations/create-node/create-number
 import { FunctionHeaderItem, NumberNode } from '../../../types/nodes.types';
 import { PluginFragment } from '../../../utils/plugin-builder';
 
-const doubleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
+const doubleNumberHeader: FunctionHeaderItem[] = [
+    { name: 'n', type: 'number', evaluate: true },
+    { name: 'x', type: 'number', evaluate: true },
+]
 
 const gganzzahlFragment = new PluginFragment().addFunction(
     'gganzzahl',
@@ -12,11 +15,11 @@ const gganzzahlFragment = new PluginFragment().addFunction(
     ({ getParameter, runtimeError }) => {
         const n = (<NumberNode>getParameter('n')).value;
         if (isNaN(n)) {
-            throw runtimeError('Funktion GGanzzahl funktioniert nur mit Zahlen.');
+            throw runtimeError('Funktion gganzzahl funktioniert nur mit Zahlen.');
         }
         const x = (<NumberNode>getParameter('x')).value;
-        if (isNaN(n)) {
-            throw runtimeError('Funktion GGanzzahl funktioniert nur mit Zahlen.');
+        if (isNaN(x)) {
+            throw runtimeError('Funktion gganzzahl funktioniert nur mit Zahlen.');
         }
 
         if (n > x) {
