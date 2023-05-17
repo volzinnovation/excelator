@@ -92,8 +92,3 @@ integrationTest('grad(180)', '3.14159');
 integrationTest('grad(90)', '1.5708');
 integrationTestThrow('grad(Lewandowski)');
 
-//ggt
-integrationTest('ggt(2,6)', '2');
-integrationTest('ggt(6,9)', '3');
-integrationTest('ggt(-4,6)', '2');
-integrationTest('ggt(7,10)', '1');

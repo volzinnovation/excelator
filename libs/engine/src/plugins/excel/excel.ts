@@ -11,7 +11,6 @@ import deltaFragment from "./fragments/ggt";
 import gganzzahl from "./fragments/gganzzahl";
 import gradFragment from "./fragments/grad";
 import aufrundenFragment from "./fragments/faculty";
-import ggtFragment from "./fragments/ggt";
 import facultyFragment from "./fragments/faculty";
 import falschFragment from "./fragments/falsch";
 import oktindezFragment from "./fragments/oktindez";
@@ -45,7 +44,6 @@ const excelPlugin = createPlugin(
     .addFragment(gganzzahl)
     .addFragment(gradFragment)
     .addFragment(aufrundenFragment)
-    .addFragment(ggtFragment)
     .addFragment(facultyFragment)
     .addFragment(falschFragment)
     .addFragment(oktindezFragment)
