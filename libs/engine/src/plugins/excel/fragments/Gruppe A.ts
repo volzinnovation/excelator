@@ -13,11 +13,11 @@ const binindezFragment = new PluginFragment()
 
     .addFunction(
         'BININDEZ',
-        singleStringHeader,
+        singleNumberHeader,
         'Convert binary to decimal',
         'Binäre Zahl in Dezimalzahl umwandeln',
         ({ getParameter, createNumberNode, runtimeError }) => {
-            const binary = (<StringNode>getParameter('binary')).value;
+            const binary = (<NumberNode>getParameter('binary')).value;
 
             if (!/^[01]+$/.test(binary)) {
                 throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
@@ -26,6 +26,40 @@ const binindezFragment = new PluginFragment()
             const decimal = parseInt(binary, 2);
             return createNumberNode(decimal);
         },
+    )
+    .addFunction(
+    'BININHEX',
+    singleNumberHeader,
+    'Convert binary to hexadecimal',
+    'Binäre Zahl in Hexadezimalzahl umwandeln',
+    ({ getParameter, createNumberNode, runtimeError }) => {
+        const binary = (<NumberNode>getParameter('binary')).value;
+
+        if (!/^[01]+$/.test(binary)) {
+            throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
+        }
+
+        const decimal = parseInt(binary, 2);
+        const hexadecimal = decimal.toString(16).toUpperCase();
+        return createNumberNode(hexadecimal);
+    }
+)
+    .addFunction(
+        'Kotangens',
+        singleNumberHeader,
+        'Compute the cotangent',
+        'Kotangens berechnen',
+        ({ getParameter, createNumberNode, runtimeError }) => {
+            const angle = (<NumberNode>getParameter('angle')).value;
+            const radians = angle * (Math.PI / 180); // Umwandlung in Bogenmaß
+
+            if (Math.cos(radians) === 0) {
+                throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');
+            }
+
+            const cotangent = 1 / Math.tan(radians);
+            return createNumberNode(cotangent);
+        }
     );
 
 
