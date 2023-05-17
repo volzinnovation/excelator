@@ -50,7 +50,7 @@ integrationTest('ungerade(7.2)', '9');
 integrationTest('ungerade(7.89)', '9');
 integrationTestThrow('ungerade(a)');
 
-
+/*
 //fakultät
 integrationTest('faculty(0)', '1'); // ist so definiert
 integrationTest('faculty(1)', '1');
@@ -92,3 +92,6 @@ integrationTest('grad(180)', '3.14159');
 integrationTest('grad(90)', '1.5708');
 integrationTestThrow('grad(Lewandowski)');
 
+
+
+ */

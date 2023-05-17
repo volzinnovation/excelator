@@ -2,7 +2,10 @@ import createNumberNode from '../../../node-operations/create-node/create-number
 import { FunctionHeaderItem, NumberNode } from '../../../types/nodes.types';
 import { PluginFragment } from '../../../utils/plugin-builder';
 
-const doubleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
+const doubleNumberHeader: FunctionHeaderItem[] = [
+    { name: 'n', type: 'number', evaluate: true },
+    { name: 'x', type: 'number', evaluate: true },
+]
 
 const deltaFragment = new PluginFragment().addFunction(
     'delta',
@@ -15,7 +18,7 @@ const deltaFragment = new PluginFragment().addFunction(
                     throw runtimeError('Funktion Delta funktioniert nur mit Zahlen.');
             }
             const x = (<NumberNode>getParameter('x')).value;
-            if (isNaN(n)) {
+            if (isNaN(x)) {
                     throw runtimeError('Funktion Delta funktioniert nur mit Zahlen.');
             }
 
