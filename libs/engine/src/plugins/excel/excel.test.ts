@@ -49,3 +49,51 @@ integrationTest('ungerade(6.2)', '7');
 integrationTest('ungerade(7.2)', '9');
 integrationTest('ungerade(7.89)', '9');
 integrationTestThrow('ungerade(a)');
+
+
+//fakultät
+integrationTest('faculty(0)', '1'); // ist so definiert
+integrationTest('faculty(1)', '1');
+integrationTest('faculty(2)', '2');
+integrationTest('faculty(4)', '24');
+integrationTest('faculty(5)', '120');
+integrationTestThrow('faculty(-1)');
+integrationTestThrow('faculty(0.5)');
+
+//delta
+integrationTest('delta(1,2)', '0');
+integrationTest('delta(-1,-1)', '1');
+integrationTest('delta(3+4,8-1)', '1');
+integrationTest('delta(0,3+5-8)', '1');
+integrationTest('delta(1,1+1)', '0');
+
+//aufrunden
+integrationTest('aufrunden(1)', '1');
+integrationTest('aufrunden(1.3)', '2');
+integrationTest('aufrunden(5.8)', '6');
+integrationTest('aufrunden(4+4.2)', '9');
+
+//falsch
+integrationTest('falsch(1)', 'FALSCH');
+integrationTest('falsch(0.3+0.8)', 'FALSCH');
+integrationTest('falsch(0)', 'FALSCH');
+integrationTestThrow('falsch(Lewandowski)');
+
+//gganzzahl
+integrationTest('gganzzahl(1,2)', '0');
+integrationTest('gganzzahl(3,2)', '1');
+integrationTest('gganzzahl(3+5,8-4)', '1');
+integrationTest('gganzzahl(0,2.4)', '0');
+integrationTest('gganzzahl(1,2)', '0');
+
+//grad
+integrationTest('grad(360)', '6.28319');
+integrationTest('grad(180)', '3.14159');
+integrationTest('grad(90)', '1.5708');
+integrationTestThrow('grad(Lewandowski)');
+
+//ggt
+integrationTest('ggt(2,6)', '2');
+integrationTest('ggt(6,9)', '3');
+integrationTest('ggt(-4,6)', '2');
+integrationTest('ggt(7,10)', '1');
