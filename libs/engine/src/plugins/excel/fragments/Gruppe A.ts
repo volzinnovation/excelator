@@ -1,22 +1,22 @@
 
 import createNumberNode from '../../../node-operations/create-node/create-number-node';
-import { FunctionHeaderItem, NumberNode } from '../../../types/nodes.types';
 import { PluginFragment } from '../../../utils/plugin-builder';
-
+import { FunctionHeaderItem, NumberNode } from '../../../types/nodes.types';
 
 
 const singleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
 
 
 
-const binindezFragment = new PluginFragment()
+const excelConstantsFragment = new PluginFragment()
+
 
     .addFunction(
         'BININDEZ',
         singleNumberHeader,
         'Convert binary to decimal',
         'Binäre Zahl in Dezimalzahl umwandeln',
-        ({ getParameter, createNumberNode, runtimeError }) => {
+        ({ getParameter,  runtimeError }) => {
             const binary = (<NumberNode>getParameter('binary')).value;
 
             if (!/^[01]+$/.test(binary)) {
@@ -32,7 +32,7 @@ const binindezFragment = new PluginFragment()
     singleNumberHeader,
     'Convert binary to hexadecimal',
     'Binäre Zahl in Hexadezimalzahl umwandeln',
-    ({ getParameter, createNumberNode, runtimeError }) => {
+    ({ getParameter, runtimeError }) => {
         const binary = (<NumberNode>getParameter('binary')).value;
 
         if (!/^[01]+$/.test(binary)) {
@@ -49,7 +49,7 @@ const binindezFragment = new PluginFragment()
         singleNumberHeader,
         'Compute the cotangent',
         'Kotangens berechnen',
-        ({ getParameter, createNumberNode, runtimeError }) => {
+        ({ getParameter, runtimeError }) => {
             const angle = (<NumberNode>getParameter('angle')).value;
             const radians = angle * (Math.PI / 180); // Umwandlung in Bogenmaß
 
@@ -66,4 +66,4 @@ const binindezFragment = new PluginFragment()
 
 
 
-export default binindezFragment;
+export default excelConstantsFragment;
