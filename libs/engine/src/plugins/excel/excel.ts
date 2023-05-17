@@ -14,6 +14,11 @@ import aufrundenFragment from "./fragments/faculty";
 import ggtFragment from "./fragments/ggt";
 import facultyFragment from "./fragments/faculty";
 import falschFragment from "./fragments/falsch";
+import oktindezFragment from "./fragments/oktindez";
+import pdurationFragment from "./fragments/pduration";
+import quadratesummeFragment from "./fragments/quadratesumme";
+import quotientFragment from "./fragments/quotient";
+import rundenFragment from "./fragments/runden";
 
 
 
@@ -43,6 +48,11 @@ const excelPlugin = createPlugin(
     .addFragment(ggtFragment)
     .addFragment(facultyFragment)
     .addFragment(falschFragment)
+    .addFragment(oktindezFragment)
+    .addFragment(pdurationFragment)
+    .addFragment(quadratesummeFragment)
+    .addFragment(quotientFragment)
+    .addFragment(rundenFragment)
     .build();
 
 export default excelPlugin;
