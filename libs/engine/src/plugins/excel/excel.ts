@@ -6,7 +6,8 @@ import wurzelFragment from './fragments/wurzel';
 import wennFragment from './fragments/wenn';
 import zufallsbereichFragment from './fragments/zufallsbereich';
 import ungeradeFragment from './fragments/ungerade';
-import aufrundenFragment from "./fragments/aufrunden";
+import log10Fragment from "./fragments/log10";
+
 
 const excelPlugin = createPlugin(
     {
@@ -26,7 +27,7 @@ const excelPlugin = createPlugin(
     .addFragment(wurzelFragment)
     .addFragment(zufallsbereichFragment)
     .addFragment(ungeradeFragment)
-    .addFragment(aufrundenFragment)
+    .addFragment(log10Fragment)
     .build();
 
 export default excelPlugin;
