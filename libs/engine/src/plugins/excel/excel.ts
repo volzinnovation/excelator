@@ -13,6 +13,7 @@ import gradFragment from "./fragments/grad";
 import aufrundenFragment from "./fragments/faculty";
 import ggtFragment from "./fragments/ggt";
 import facultyFragment from "./fragments/faculty";
+import falschFragment from "./fragments/falsch";
 
 
 
@@ -41,7 +42,7 @@ const excelPlugin = createPlugin(
     .addFragment(aufrundenFragment)
     .addFragment(ggtFragment)
     .addFragment(facultyFragment)
-    //.addFunction(falschFragment)
+    .addFragment(falschFragment)
     .build();
 
 export default excelPlugin;

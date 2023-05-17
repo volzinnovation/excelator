@@ -1,24 +1,18 @@
 import createNumberNode from '../../../node-operations/create-node/create-number-node';
 import { FunctionHeaderItem, NumberNode } from '../../../types/nodes.types';
 import { PluginFragment } from '../../../utils/plugin-builder';
+import createStringNode from "../../../node-operations/create-node/create-string-node";
 
 const singleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
 
-const aufrundenFragment = new PluginFragment().addFunction(
-    'aufrunden',
+const falschFragment = new PluginFragment().addFunction(
+    'falsch',
     singleNumberHeader,
-    'Round up without decimal place',
-    'Aufrunden ohne Nachkommastelle',
+    'returns the truth value "false"',
+    'Gibt den Wahrheitswert "falsch" zurück',
     ({ getParameter, runtimeError }) => {
-        const n = (<NumberNode>getParameter('n')).value;
-
-        if (isNaN(n)) {
-            throw runtimeError('Funktion Aufrunden funktioniert nur mit Zahlen.');
-        }
-        return createNumberNode(Math.ceil(n));
-        },
+            return createStringNode("FALSCH");
+    },
 );
 
-export default aufrundenFragment;
-
-
+export default falschFragment;
