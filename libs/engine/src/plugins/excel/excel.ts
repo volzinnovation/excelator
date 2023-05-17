@@ -7,6 +7,13 @@ import wennFragment from './fragments/wenn';
 import zufallsbereichFragment from './fragments/zufallsbereich';
 import ungeradeFragment from './fragments/ungerade';
 import log10Fragment from "./fragments/log10";
+import deltaFragment from "./fragments/ggt";
+import gganzzahl from "./fragments/gganzzahl";
+import gradFragment from "./fragments/grad";
+import aufrundenFragment from "./fragments/faculty";
+import ggtFragment from "./fragments/ggt";
+import facultyFragment from "./fragments/faculty";
+
 
 
 const excelPlugin = createPlugin(
@@ -28,6 +35,13 @@ const excelPlugin = createPlugin(
     .addFragment(zufallsbereichFragment)
     .addFragment(ungeradeFragment)
     .addFragment(log10Fragment)
+    .addFragment(deltaFragment)
+    .addFragment(gganzzahl)
+    .addFragment(gradFragment)
+    .addFragment(aufrundenFragment)
+    .addFragment(ggtFragment)
+    //.addFunction(facultyFragment)
+    //.addFunction(falschFragment)
     .build();
 
 export default excelPlugin;
