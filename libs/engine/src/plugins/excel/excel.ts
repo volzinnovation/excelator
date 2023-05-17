@@ -40,7 +40,7 @@ const excelPlugin = createPlugin(
     .addFragment(gradFragment)
     .addFragment(aufrundenFragment)
     .addFragment(ggtFragment)
-    //.addFunction(facultyFragment)
+    .addFragment(facultyFragment)
     //.addFunction(falschFragment)
     .build();
 
