@@ -7,17 +7,17 @@ import wennFragment from './fragments/wenn';
 import zufallsbereichFragment from './fragments/zufallsbereich';
 import ungeradeFragment from './fragments/ungerade';
 import log10Fragment from "./fragments/log10";
-import deltaFragment from "./fragments/ggt";
 import gganzzahl from "./fragments/gganzzahl";
 import gradFragment from "./fragments/grad";
-import aufrundenFragment from "./fragments/faculty";
-import facultyFragment from "./fragments/faculty";
 import falschFragment from "./fragments/falsch";
 import oktindezFragment from "./fragments/oktindez";
 import pdurationFragment from "./fragments/pduration";
 import quadratesummeFragment from "./fragments/quadratesumme";
 import quotientFragment from "./fragments/quotient";
 import rundenFragment from "./fragments/runden";
+import fakultaetFragment from "./fragments/fakultaet";
+import aufrundenFragment from "./fragments/aufrunden";
+import deltaFragment from "./fragments/delta";
 
 
 
@@ -44,7 +44,7 @@ const excelPlugin = createPlugin(
     .addFragment(gganzzahl)
     .addFragment(gradFragment)
     .addFragment(aufrundenFragment)
-    .addFragment(facultyFragment)
+    .addFragment(fakultaetFragment)
     .addFragment(falschFragment)
     .addFragment(oktindezFragment)
     .addFragment(pdurationFragment)

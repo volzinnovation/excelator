@@ -4,15 +4,15 @@ import { PluginFragment } from '../../../utils/plugin-builder';
 import {calculateFact} from "../../discrete-math/utils/fact";
 
 const singleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
-const facultyFragment = new PluginFragment().addFunction(
-    'faculty',
+const fakultaetFragment = new PluginFragment().addFunction(
+    'fakultaet',
     singleNumberHeader,
     'Returns the faculty of a number.',
-    'Gibt die Fakultät einer Zahl zurück.',
+    'Gibt die Fakultaet einer Zahl zurück.',
     ({ getParameter }) => {
         const n = (<NumberNode>getParameter('n')).value;
         return createNumberNode(calculateFact(n));
     },
 );
 
-export default facultyFragment;
+export default fakultaetFragment;
