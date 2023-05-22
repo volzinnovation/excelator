@@ -179,7 +179,7 @@ const excelConstantsFragment = new PluginFragment()
 
             const decimal = parseInt(String(n), 2);
             return createNumberNode(decimal);
-        },
+        }
     )
     .addFunction(
         'bininhex',
@@ -196,7 +196,7 @@ const excelConstantsFragment = new PluginFragment()
             const decimal = parseInt(String(binary), 2);
             const hexadecimal = decimal.toString(16).toUpperCase();
             return createNumberNode(Number(hexadecimal));
-        },
+        }
     )
     .addFunction(
         'kotangens',
@@ -213,7 +213,7 @@ const excelConstantsFragment = new PluginFragment()
 
             const cotangent = 1 / Math.tan(radians);
             return createNumberNode(cotangent);
-        },
+        }
     )
 
 .addFunction(
