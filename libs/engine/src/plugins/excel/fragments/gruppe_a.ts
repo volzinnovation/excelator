@@ -17,13 +17,13 @@ const excelConstantsFragment = new PluginFragment()
         'Convert binary to decimal',
         'Binäre Zahl in Dezimalzahl umwandeln',
         ({ getParameter,  runtimeError }) => {
-            const binary = (<NumberNode>getParameter('n')).value;
+            const n = (<NumberNode>getParameter('n')).value;
 
-            if (!/^[01]+$/.test(binary)) {
+            if (!/^[01]+$/.test(String(n))) {
                 throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
             }
 
-            const decimal = parseInt(binary, 2);
+            const decimal = parseInt(String(n), 2);
             return createNumberNode(decimal);
         },
     )
@@ -35,13 +35,13 @@ const excelConstantsFragment = new PluginFragment()
     ({ getParameter, runtimeError }) => {
         const binary = (<NumberNode>getParameter('n')).value;
 
-        if (!/^[01]+$/.test(binary)) {
+        if (!/^[01]+$/.test(String(binary))) {
             throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
         }
 
-        const decimal = parseInt(binary, 2);
+        const decimal = parseInt(String(binary), 2);
         const hexadecimal = decimal.toString(16).toUpperCase();
-        return createNumberNode(hexadecimal);
+        return createNumberNode(Number(hexadecimal));
     }
 )
     .addFunction(
