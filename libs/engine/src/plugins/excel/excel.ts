@@ -18,6 +18,10 @@ import rundenFragment from "./fragments/runden";
 import fakultaetFragment from "./fragments/fakultaet";
 import aufrundenFragment from "./fragments/aufrunden";
 import deltaFragment from "./fragments/delta";
+import restFragment from "./fragments/rest";
+import stabwsFragment from "./fragments/stabws";
+import sinhypFragment from "./fragments/sinhyp";
+import tanhypFragment from "./fragments/tanhyp";
 
 
 
@@ -51,6 +55,10 @@ const excelPlugin = createPlugin(
     .addFragment(quadratesummeFragment)
     .addFragment(quotientFragment)
     .addFragment(rundenFragment)
+    .addFragment(restFragment)
+    .addFragment(stabwsFragment)
+    .addFragment(sinhypFragment)
+    .addFragment(tanhypFragment)
     .build();
 
 export default excelPlugin;
