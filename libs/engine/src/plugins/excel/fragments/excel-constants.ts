@@ -207,6 +207,11 @@ const excelConstantsFragment = new PluginFragment()
             const angle = (<NumberNode>getParameter('n')).value;
             const radians = angle * (Math.PI / 180); // Umwandlung in Bogenmaß
 
+
+            if (angle === 0) {
+                throw runtimeError('Ungültiger Winkel. Der Kotangens ist für den Winkel 0 nicht definiert.');
+            }
+
             if (Math.cos(radians) === 0) {
                 throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');
             }
