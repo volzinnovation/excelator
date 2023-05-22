@@ -199,13 +199,13 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'kotangens',
+        'Kotangens',
         singleNumberHeader,
         'Compute the cotangent',
         'Kotangens berechnen',
         ({ getParameter, runtimeError }) => {
-            const angle = (<NumberNode>getParameter('angle')).value;
-            const radians = angle * (Math.PI / 180); // Umwandlung in Bogenmaß
+            const n = (<NumberNode>getParameter('n')).value;
+            const radians = n * (Math.PI / 180); // Umwandlung in Bogenmaß
 
             if (Math.cos(radians) === 0) {
                 throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');
