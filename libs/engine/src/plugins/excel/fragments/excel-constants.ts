@@ -13,7 +13,7 @@ const singleVectorHeader: FunctionHeaderItem[] = [{ name: 'v', type: 'vector', e
 */
 const excelConstantsFragment = new PluginFragment()
     .addConstant('excel:five', 'Test output five', 'Test output fünf', createNumberNode(5))
-/*
+
     // Anfang Gruppe C - Tom
 
     .addFunction(
@@ -62,7 +62,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     // Ende Funktionen Gruppe C - Tom
-*/
+
     //Gruppe A Funktionen
     .addFunction(
         'arccos',
