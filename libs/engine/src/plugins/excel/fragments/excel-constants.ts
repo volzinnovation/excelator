@@ -96,7 +96,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'acosh',
+        'Acosh',
         singleNumberHeader,
         'Returns the inverse hyperbolic cosine of a number',
         'Gibt den umgekehrten hyperbolischen Kosinus einer Zahl zurück',
@@ -112,7 +112,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'asin',
+        'ASin',
         singleNumberHeader,
         'Returns the arc sine or inverted sine of a number',
         'Gibt den Arkussinus oder umgekehrten Sinus einer Zahl zurück.',
@@ -125,7 +125,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'atan',
+        'Atan',
         singleNumberHeader,
         'Returns the arc tangent or inverse tangent of a number.',
         'Gibt den Arkustangens oder umgekehrten Tangens einer Zahl zurück.',
@@ -138,7 +138,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'asinh',
+        'ASinh',
         singleNumberHeader,
         'Returns the inverse hyperbolic sine of a number.',
         'Gibt den umgekehrten hyperbolischen Sinus einer Zahl zurück.',
@@ -196,7 +196,7 @@ const excelConstantsFragment = new PluginFragment()
             const decimal = parseInt(String(binary), 2);
             const hexadecimal = decimal.toString(16).toUpperCase();
             return createNumberNode(Number(hexadecimal));
-        }
+        },
     )
     .addFunction(
         'kotangens',
@@ -213,7 +213,7 @@ const excelConstantsFragment = new PluginFragment()
 
             const cotangent = 1 / Math.tan(radians);
             return createNumberNode(cotangent);
-        }
+        },
     )
 
 .addFunction(
