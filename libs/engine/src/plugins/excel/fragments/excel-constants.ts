@@ -96,7 +96,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'Acosh',
+        'acosh',
         singleNumberHeader,
         'Returns the inverse hyperbolic cosine of a number',
         'Gibt den umgekehrten hyperbolischen Kosinus einer Zahl zurück',
@@ -112,7 +112,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'ASin',
+        'asin',
         singleNumberHeader,
         'Returns the arc sine or inverted sine of a number',
         'Gibt den Arkussinus oder umgekehrten Sinus einer Zahl zurück.',
@@ -125,7 +125,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'Atan',
+        'atan',
         singleNumberHeader,
         'Returns the arc tangent or inverse tangent of a number.',
         'Gibt den Arkustangens oder umgekehrten Tangens einer Zahl zurück.',
@@ -138,7 +138,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'ASinh',
+        'asinh',
         singleNumberHeader,
         'Returns the inverse hyperbolic sine of a number.',
         'Gibt den umgekehrten hyperbolischen Sinus einer Zahl zurück.',
@@ -153,7 +153,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'Aufrunden',
+        'aufrunden',
         singleNumberHeader,
         'Round up without decimal place',
         'Aufrunden ohne Nachkommastelle',
@@ -166,7 +166,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'BININDEZ',
+        'binindez',
         singleNumberHeader,
         'Convert binary to decimal',
         'Binäre Zahl in Dezimalzahl umwandeln',
@@ -182,7 +182,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'BININHEX',
+        'bininhex',
         singleNumberHeader,
         'Convert binary to hexadecimal',
         'Binäre Zahl in Hexadezimalzahl umwandeln',
@@ -199,7 +199,7 @@ const excelConstantsFragment = new PluginFragment()
         }
     )
     .addFunction(
-        'Kotangens',
+        'kotangens',
         singleNumberHeader,
         'Compute the cotangent',
         'Kotangens berechnen',
