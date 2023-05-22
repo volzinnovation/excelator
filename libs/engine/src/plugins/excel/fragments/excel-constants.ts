@@ -229,7 +229,7 @@ const excelConstantsFragment = new PluginFragment()
                 throw runtimeError('Nur Zahlen größer als 0 möglich');
             }
             return createNumberNode((n * Math.PI) / 180);
-        },
+        }
     );
 
 
