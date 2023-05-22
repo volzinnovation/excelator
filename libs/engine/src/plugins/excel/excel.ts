@@ -22,6 +22,7 @@ import restFragment from "./fragments/rest";
 import stabwsFragment from "./fragments/stabws";
 import sinhypFragment from "./fragments/sinhyp";
 import tanhypFragment from "./fragments/tanhyp";
+import ggtFragment from "./fragments/ggt";
 
 
 
@@ -59,6 +60,7 @@ const excelPlugin = createPlugin(
     .addFragment(stabwsFragment)
     .addFragment(sinhypFragment)
     .addFragment(tanhypFragment)
+    .addFragment(ggtFragment)
     .build();
 
 export default excelPlugin;
