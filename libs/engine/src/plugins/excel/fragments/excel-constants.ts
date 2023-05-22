@@ -81,7 +81,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'abrunden',
+        'Abrunden',
         singleNumberHeader,
         'square root.',
         'Abrunden ohne Nachkomma stelle',
@@ -166,6 +166,57 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
+        'binindez',
+        singleNumberHeader,
+        'Convert binary to decimal',
+        'Binäre Zahl in Dezimalzahl umwandeln',
+        ({ getParameter,  runtimeError }) => {
+            const n = (<NumberNode>getParameter('n')).value;
+
+            if (!/^[01]+$/.test(String(n))) {
+                throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
+            }
+
+            const decimal = parseInt(String(n), 2);
+            return createNumberNode(decimal);
+        },
+    )
+    .addFunction(
+        'bininhex',
+        singleNumberHeader,
+        'Convert binary to hexadecimal',
+        'Binäre Zahl in Hexadezimalzahl umwandeln',
+        ({ getParameter, runtimeError }) => {
+            const binary = (<NumberNode>getParameter('n')).value;
+
+            if (!/^[01]+$/.test(String(binary))) {
+                throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
+            }
+
+            const decimal = parseInt(String(binary), 2);
+            const hexadecimal = decimal.toString(16).toUpperCase();
+            return createNumberNode(Number(hexadecimal));
+        },
+    )
+    .addFunction(
+        'kotangens',
+        singleNumberHeader,
+        'Compute the cotangent',
+        'Kotangens berechnen',
+        ({ getParameter, runtimeError }) => {
+            const angle = (<NumberNode>getParameter('angle')).value;
+            const radians = angle * (Math.PI / 180); // Umwandlung in Bogenmaß
+
+            if (Math.cos(radians) === 0) {
+                throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');
+            }
+
+            const cotangent = 1 / Math.tan(radians);
+            return createNumberNode(cotangent);
+        },
+    )
+
+.addFunction(
         'bogenmass',
         singleNumberHeader,
         'Calculates the Radian to an angle',
