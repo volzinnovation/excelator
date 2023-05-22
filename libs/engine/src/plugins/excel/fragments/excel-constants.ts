@@ -211,9 +211,11 @@ const excelConstantsFragment = new PluginFragment()
             if (angle === 0) {
                 throw runtimeError('Ungültiger Winkel. Der Kotangens ist für den Winkel 0 nicht definiert.');
             }
-
-            if (Math.cos(radians) === 0) {
+            else if (Math.cos(radians) === 0) {
                 throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');
+            }
+            else if (isNaN(angle)) {
+                throw runtimeError('Der Kotangens funktioniert nur mit Zahlen');
             }
 
             const cotangent = 1 / Math.tan(radians);
