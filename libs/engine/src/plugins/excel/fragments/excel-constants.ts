@@ -4,15 +4,16 @@ import { FunctionHeaderItem, NumberNode } from '../../../types/nodes.types';
 // import createVector from '../../../../node-operations/create-node/create-vector';
 
 const singleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
+/*
 const doubleNumberHeader: FunctionHeaderItem[] = [
     { name: 'n', type: 'number', evaluate: true },
     { name: 'a', type: 'number', evaluate: true },
 ];
 const singleVectorHeader: FunctionHeaderItem[] = [{ name: 'v', type: 'vector', evaluate: true }];
-
+*/
 const excelConstantsFragment = new PluginFragment()
     .addConstant('excel:five', 'Test output five', 'Test output fünf', createNumberNode(5))
-
+/*
     // Anfang Gruppe C - Tom
 
     .addFunction(
@@ -61,7 +62,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     // Ende Funktionen Gruppe C - Tom
-
+*/
     //Gruppe A Funktionen
     .addFunction(
         'arccos',
@@ -178,7 +179,7 @@ const excelConstantsFragment = new PluginFragment()
             }
             return createNumberNode((n * Math.PI) / 180);
         },
-    )
+    );
 
 
 export default excelConstantsFragment;
