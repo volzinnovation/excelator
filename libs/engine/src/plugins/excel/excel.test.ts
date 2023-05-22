@@ -87,4 +87,9 @@ integrationTest('grad(2*pi)', '360');
 integrationTest('grad(0.5*pi)', '90');
 integrationTestThrow('grad(Lewandowski)');
 
+//ggt
+integrationTest('ggt(2,4)', '2');
+integrationTest('ggt(6,9)', '3');
+integrationTest('ggt(18,27)', '9');
+integrationTestThrow('ggt(Lewandowski)');
 
