@@ -81,7 +81,7 @@ const excelConstantsFragment = new PluginFragment()
     )
 
     .addFunction(
-        'abrunden',
+        'Abrunden',
         singleNumberHeader,
         'square root.',
         'Abrunden ohne Nachkomma stelle',
@@ -153,7 +153,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'aufrunden',
+        'Aufrunden',
         singleNumberHeader,
         'Round up without decimal place',
         'Aufrunden ohne Nachkommastelle',
