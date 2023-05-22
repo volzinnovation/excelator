@@ -15,7 +15,7 @@ const excelConstantsFragment = new PluginFragment()
     .addConstant('excel:five', 'Test output five', 'Test output fünf', createNumberNode(5))
 
     // Anfang Gruppe C - Tom
-
+/*
     .addFunction(
         'median',
         singleNumberHeader,
@@ -62,7 +62,7 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     // Ende Funktionen Gruppe C - Tom
-
+*/
     //Gruppe A Funktionen
     .addFunction(
         'arccos',
@@ -204,8 +204,8 @@ const excelConstantsFragment = new PluginFragment()
         'Compute the cotangent',
         'Kotangens berechnen',
         ({ getParameter, runtimeError }) => {
-            const n = (<NumberNode>getParameter('n')).value;
-            const radians = n * (Math.PI / 180); // Umwandlung in Bogenmaß
+            const angle = (<NumberNode>getParameter('n')).value;
+            const radians = angle * (Math.PI / 180); // Umwandlung in Bogenmaß
 
             if (Math.cos(radians) === 0) {
                 throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');
