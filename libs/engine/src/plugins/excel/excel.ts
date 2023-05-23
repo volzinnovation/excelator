@@ -6,7 +6,6 @@ import wurzelFragment from './fragments/wurzel';
 import wennFragment from './fragments/wenn';
 import zufallsbereichFragment from './fragments/zufallsbereich';
 import ungeradeFragment from './fragments/ungerade';
-import log10Fragment from "./fragments/log10";
 import gganzzahl from "./fragments/gganzzahl";
 import gradFragment from "./fragments/grad";
 import falschFragment from "./fragments/falsch";
@@ -23,6 +22,14 @@ import stabwsFragment from "./fragments/stabws";
 import sinhypFragment from "./fragments/sinhyp";
 import tanhypFragment from "./fragments/tanhyp";
 import ggtFragment from "./fragments/ggt";
+import istgeradeFragment from "./fragments/istgerade";
+import istungeradeFragment from "./fragments/istungerade";
+/*
+import isttextFragment from "./fragments/isttext";
+import istzahlFragment from "./fragments/istzahl";
+ */
+import kuerzenFragment from "./fragments/kuerzen";
+import log10Fragment from "./fragments/log10";
 
 
 
@@ -44,7 +51,6 @@ const excelPlugin = createPlugin(
     .addFragment(wurzelFragment)
     .addFragment(zufallsbereichFragment)
     .addFragment(ungeradeFragment)
-    .addFragment(log10Fragment)
     .addFragment(deltaFragment)
     .addFragment(gganzzahl)
     .addFragment(gradFragment)
@@ -61,6 +67,14 @@ const excelPlugin = createPlugin(
     .addFragment(sinhypFragment)
     .addFragment(tanhypFragment)
     .addFragment(ggtFragment)
+    .addFragment(istgeradeFragment)
+    .addFragment(istungeradeFragment)
+    /*
+    .addFragment(isttextFragment)
+    .addFragment(istzahlFragment)
+     */
+    .addFragment(kuerzenFragment)
+    .addFragment(log10Fragment)
     .build();
 
 export default excelPlugin;

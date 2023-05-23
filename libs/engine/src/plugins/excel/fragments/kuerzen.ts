@@ -6,6 +6,7 @@ const doubleNumberHeader: FunctionHeaderItem[] = [
     { name: 'n', type: 'number', evaluate: true },
     { name: 'a', type: 'number', evaluate: true },
 ]
+/*
 const kuerzenFragment = new PluginFragment().addFunction(
     'kuerzen',
     doubleNumberHeader,
@@ -23,4 +24,26 @@ const kuerzenFragment = new PluginFragment().addFunction(
         return createNumberNode(Math.round(n * factor) / factor);
     },
 )
+ */
+
+const kuerzenFragment = new PluginFragment().addFunction(
+    'kuerzen',
+    doubleNumberHeader,
+    'Truncates a number to the specified decimal places',
+    'Kürzt eine Zahl auf die angegebene Anzahl von Dezimalstellen',
+    ({ getParameter, runtimeError }) => {
+        const n = (<NumberNode>getParameter('n')).value;
+        const a = (<NumberNode>getParameter('a')).value;
+
+        if (isNaN(n) || isNaN(a)) {
+            throw runtimeError('Beide Parameter müssen Zahlen sein.');
+        }
+
+        const factor = Math.pow(10, a);
+        const truncatedNumber = Math.trunc(n * factor) / factor;
+
+        return createNumberNode(truncatedNumber);
+    }
+);
+
 export default kuerzenFragment;

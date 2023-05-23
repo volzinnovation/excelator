@@ -1,4 +1,4 @@
-import { FunctionHeaderItem} from '../../../types/nodes.types';
+/*import { FunctionHeaderItem} from '../../../types/nodes.types';
 import { PluginFragment } from '../../../utils/plugin-builder';
 
 const singleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', evaluate: true }];
@@ -17,3 +17,6 @@ const isttextFragment = new PluginFragment().addFunction(
     },
 )
 export default isttextFragment;
+
+
+ */

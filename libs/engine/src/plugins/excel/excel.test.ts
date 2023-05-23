@@ -133,4 +133,29 @@ integrationTestThrow('stabws(0.445,0.653,a)');
 integrationTest('tanhyp(0.4)', '0.379949');
 integrationTestThrow('tanhyp(a)');
 
+// istungerade
+integrationTest('istungerade(4)', 'false');
+integrationTest('istungerade(7)', 'true');
+integrationTestThrow('istungerade(a)');
 
+// istgerade
+integrationTest('istgerade(4)', 'true');
+integrationTest('istgerade(7)', 'false');
+integrationTestThrow('istungerade(a)');
+/*
+// istzahl
+integrationTest('istzahl(4)', 'true');
+integrationTest('istzahl(a)', 'false');
+
+// isttext
+integrationTest('isttext(4)', 'false');
+integrationTest('isttext(hallo)', 'true');
+
+ */
+// kuerzen
+integrationTest('kuerzen(2.5355,3)', '2.535');
+integrationTestThrow('kuerzen(a,3)');
+
+// log10
+integrationTest('log10(5)', '0.69897');
+integrationTestThrow('log10(a)');
