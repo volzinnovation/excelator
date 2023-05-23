@@ -13,8 +13,6 @@ const sinhypFragment = new PluginFragment().addFunction(
         const n = (<NumberNode>getParameter('n')).value;
         if (isNaN(n)) {
             throw runtimeError('Die Funktion sinhyp funktioniert nur mit Zahlen.');
-        } else if (n < -1 || n > 1) {
-            throw runtimeError('Nur im Intervall [-1,1] definiert.');
         }
         return createNumberNode(Math.sinh(n));
     },

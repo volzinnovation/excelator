@@ -20,8 +20,11 @@ const quotientFragment = new PluginFragment().addFunction(
         if (isNaN(n || a)) {
             throw runtimeError('Funktion Quotient funktioniert nur mit Zahlen.');
         }
+        else if (a === 0) {
+            throw runtimeError('Division durch Null ist nicht zulässig.');
+        }
         const q = (n/a)
-        return createNumberNode(Math.floor(q));
+        return createNumberNode(Math.trunc(q));
     },
 );
 export default quotientFragment;

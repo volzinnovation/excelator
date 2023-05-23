@@ -15,6 +15,11 @@ const oktindezFragment = new PluginFragment().addFunction(
         if (isNaN(decimal)) {
             throw runtimeError('Ungültige Oktalzahl');
         }
+
+        else if (isNaN(decimal)) {
+            throw runtimeError('Funktion oktindez funktioniert nur mit Zahlen.');
+        }
+
         return createNumberNode(decimal);
     },
 );

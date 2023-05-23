@@ -93,3 +93,44 @@ integrationTest('ggt(6,9)', '3');
 integrationTest('ggt(18,27)', '9');
 integrationTestThrow('ggt(Lewandowski)');
 
+
+// oktindez
+integrationTest('oktindez(33)', '27');
+integrationTestThrow('oktindez(9)');
+
+// pduration
+integrationTest('pduration(0.2,300,500)', '2.801784');
+integrationTestThrow('pduration(-0.2,300,500)');
+integrationTestThrow('pduration(0.2,800,500)');
+
+// quadratesumme
+integrationTest('quadratesumme(2,3,5)', '38');
+integrationTestThrow('quadratesumme(a,3,5)');
+
+// quotient
+integrationTest('quotient(5,3)', '1');
+integrationTestThrow('quotient(5,a)');
+integrationTestThrow('quotient(5,0)');
+
+// rest
+integrationTest('rest(5,3)', '2');
+integrationTestThrow('rest(5,a)');
+integrationTestThrow('rest(5,0)');
+
+// runden
+integrationTest('runden(5.232453,3)', '5.232');
+integrationTestThrow('runden(5.232453,a)');
+
+// sinhyp
+integrationTest('sinhyp(0.53)', '0.555164');
+integrationTestThrow('sinhyp(a)');
+
+// stabws
+integrationTest('stabws(0.445,0.653,0.234)', '0.209502');
+integrationTestThrow('stabws(0.445,0.653,a)');
+
+// tanhyp
+integrationTest('tanhyp(0.4)', '0.379949');
+integrationTestThrow('tanhyp(a)');
+
+
