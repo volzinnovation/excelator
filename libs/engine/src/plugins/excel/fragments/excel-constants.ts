@@ -166,56 +166,56 @@ const excelConstantsFragment = new PluginFragment()
         },
     )
     .addFunction(
-        'binindez',
-        singleNumberHeader,
+        'binindez',         // Name der Funktion
+        singleNumberHeader,         //ein einzelner nummerischer Wert wird definiert
         'Convert binary to decimal',
         'Binäre Zahl in Dezimalzahl umwandeln',
         ({ getParameter,  runtimeError }) => {
-            const n = (<NumberNode>getParameter('n')).value;
+            const n = (<NumberNode>getParameter('n')).value;        //Paramteter ´n´ wird deklariert
 
             if (!/^[01]+$/.test(String(n))) {
-                throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
+                throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');     //Prüfung ob ´n´ein gültige binäre Zahl ist
             }
 
-            const decimal = parseInt(String(n), 2);
-            return createNumberNode(decimal);
+            const decimal = parseInt(String(n), 2);     //n wird erstmal als String intepretiert und hier in eine Dezimalzahl umgewandelt
+            return createNumberNode(decimal);       //dezimalzahl wird als numerischer Wert ausgegeben
         },
     )
     .addFunction(
-        'bininhex',
-        singleNumberHeader,
+        'bininhex',         // Name der Funktion
+        singleNumberHeader,          //ein einzelner nummerischer Wert wird definiert
         'Convert binary to hexadecimal',
         'Binäre Zahl in Hexadezimalzahl umwandeln',
         ({ getParameter, runtimeError }) => {
-            const binary = (<NumberNode>getParameter('n')).value;
+            const binary = (<NumberNode>getParameter('n')).value;       //es wird 'n' abgerufen und in der Variable binary gespeichert.
 
             if (!/^[01]+$/.test(String(binary))) {
-                throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');
+                throw runtimeError('Ungültige Eingabe. Die Funktion unterstützt nur binäre Zahlen (0 und 1).');         //Prüfung ob ´n´ein gültige binäre Zahl ist
             }
 
-            const decimal = parseInt(String(binary), 2);
-            const hexadecimal = decimal.toString(16).toUpperCase();
-            return createNumberNode(Number(hexadecimal));
+            const decimal = parseInt(String(binary), 2);        //n wird erstmal als String intepretiert und hier in eine Dezimalzahl umgewandelt        
+            const hexadecimal = decimal.toString(16).toUpperCase();     //die Dezimalzahl wird in eine hexadezimale Zeichenkette umgewandelt und ind Großbuchstaben umgewandelt
+            return createNumberNode(Number(hexadecimal));       //hexadezimalzahl wird als numerischer Wert ausgegeben
         },
     )
     .addFunction(
-        'Kotangens',
+        'Kotangens',        // Name der Funktion
         singleNumberHeader,
         'Compute the cotangent',
         'Kotangens berechnen',
         ({ getParameter, runtimeError }) => {
-            const angle = (<NumberNode>getParameter('n')).value;
-            const radians = angle * (Math.PI / 180); // Umwandlung in Bogenmaß
+            const angle = (<NumberNode>getParameter('n')).value;        //n wird abgerufen und in angle gespeichert
+            const radians = angle * (Math.PI / 180);        // Umwandlung in Bogenmaß
 
 
             if (angle === 0) {
-                throw runtimeError('Ungültiger Winkel. Der Kotangens ist für den Winkel 0 nicht definiert.');
+                throw runtimeError('Ungültiger Winkel. Der Kotangens ist für den Winkel 0 nicht definiert.');       //prüfung ob der Winkel gleich 0 ist
             }
             else if (Math.cos(radians) === 0) {
-                throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');
+                throw runtimeError('Ungültiger Winkel. Der Kotangens ist für Winkel mit einem Cosinus von 0 nicht definiert.');     //sonst wird überprüft ob der Cos des Winkels 0 ist, da tan=sin/cos
             }
 
-            const cotangent = 1 / Math.tan(radians);
+            const cotangent = 1 / Math.tan(radians);        //wenn der Winkel nicht 0 ist und der Cosinus nicht 0 ist dann wird der Kotangens des Winkels berechnet
             return createNumberNode(cotangent);
         },
     )
@@ -227,12 +227,12 @@ const excelConstantsFragment = new PluginFragment()
         'Berechnet das Bogenmaß eines Winkels',
         ({ getParameter, runtimeError }) => {
             const n = (<NumberNode>getParameter('n')).value;
-            if (isNaN(n)) {
-                throw runtimeError('Funktion Bogenmaß funktioniert nur mit Zahlen.');
+            if (isNaN(n)) { 
+                throw runtimeError('Funktion Bogenmaß funktioniert nur mit Zahlen.');       //Prüfung, ob der Wert von 'n' keine Zahl ist
             } else if (n < 0) {
-                throw runtimeError('Nur Zahlen größer als 0 möglich');
+                throw runtimeError('Nur Zahlen größer als 0 möglich');      //Prüfung ob der Wert kleiner als 0 ist
             }
-            return createNumberNode((n * Math.PI) / 180);
+            return createNumberNode((n * Math.PI) / 180);       //Berechnung Bogenmass
         },
     );
 
