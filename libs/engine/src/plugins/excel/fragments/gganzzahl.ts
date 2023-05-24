@@ -10,8 +10,8 @@ const doubleNumberHeader: FunctionHeaderItem[] = [
 const gganzzahlFragment = new PluginFragment().addFunction(
     'gganzzahl',
     doubleNumberHeader,
-    'Checks if a value is bigger than a given threshold',
-    'Überprüft, ob eine Zahl größer als ein gegebener Schwellenwert ist',
+    'Checks if a value is bigger or equal than a given threshold',
+    'Überprüft, ob ein Wert größer oder gleich dem gegebenen Schwellenwert ist',
     ({ getParameter, runtimeError }) => {
         const n = (<NumberNode>getParameter('n')).value;
         if (isNaN(n)) {

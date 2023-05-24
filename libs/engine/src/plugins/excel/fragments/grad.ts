@@ -7,9 +7,9 @@ const singleNumberHeader: FunctionHeaderItem[] = [{ name: 'n', type: 'number', e
 const gradFragment = new PluginFragment().addFunction(
     'grad',
     singleNumberHeader,
-    'Calculates the angle to radian',
-    'Berechnet das Gradmaß eines Winkels',
-    ({ getParameter, runtimeError }) => {
+    'Converts radiants to degrees',
+    'Wandelt Bogenmaß (Radiant) in Gradmaß um',
+    ({ getParameter })  => {
         const n = (<NumberNode>getParameter('n')).value;
             return createNumberNode((n * 180) / Math.PI);
     },
