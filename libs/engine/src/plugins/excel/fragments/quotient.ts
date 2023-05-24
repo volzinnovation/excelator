@@ -17,7 +17,7 @@ const quotientFragment = new PluginFragment().addFunction(
         const n = (<NumberNode>getParameter('n')).value;
         const a =  (<NumberNode>getParameter('a')).value;
 
-        if (isNaN(n || a)) {
+        if (isNaN(n) || isNaN(a)) {
             throw runtimeError('Funktion Quotient funktioniert nur mit Zahlen.');
         }
         else if (a === 0) {

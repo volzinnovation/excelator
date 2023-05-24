@@ -16,7 +16,7 @@ const restFragment = new PluginFragment().addFunction(
     ({ getParameter, runtimeError }) => {
         const n = (<NumberNode>getParameter('n')).value;
         const a = (<NumberNode>getParameter('a')).value;
-        if (isNaN(n)) {
+        if (isNaN(n) || isNaN(a)) {
             throw runtimeError('Funktion rest funktioniert nur mit Zahlen.');
         }else if (a === 0) {
             throw runtimeError('Division durch Null ist nicht zulässig.');
